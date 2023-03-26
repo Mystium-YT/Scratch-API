@@ -1,4 +1,4 @@
-class ScratchAPI-Ext {
+class ScratchAPIExt {
   getInfo() {
     return {
       id: 'asyncexample',
@@ -50,4 +50,4 @@ class ScratchAPI-Ext {
       });
   }
 }
-Scratch.extensions.register(new ScratchAPI-Ext());
+Scratch.extensions.register(new ScratchAPIExt());
