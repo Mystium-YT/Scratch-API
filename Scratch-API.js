@@ -1,46 +1,22 @@
 class ScratchAPIExt {
   getInfo() {
     return {
-      id: 'asyncexample',
-      name: 'Async Blocks',
-      blocks: [
-        {
-          opcode: 'wait',
-          text: 'wait [TIME] seconds',
-          blockType: Scratch.BlockType.COMMAND,
-          arguments: {
-            TIME: {
-              type: Scratch.ArgumentType.NUMBER,
-              defaultValue: 1
-            }
-          }
-        },
-        {
+      id: 'scratchapiext',
+      name: 'Scratch API',
+      blocks: [{
           opcode: 'gettitle',
           text: 'get title of scratch project [ID]',
           blockType: Scratch.BlockType.REPORTER,
           arguments: {
             ID: {
               type: Scratch.ArgumentType.NUMBER,
-              defaultValue: 750275219
-            }
-          }
-        }
-      ]
+              defaultValue: 750275219 } }
+        }]
     };
   }
-
-  wait (args) {
-    return new Promise((resolve, reject) => {
-      const timeInMilliseconds = args.TIME * 1000;
-      setTimeout(() => {
-        resolve();
-      }, timeInMilliseconds);
-    });
-  }
-
   gettitle (args) {
-    return fetch('https://trampoline.turbowarp.org/proxy/projects/' + args.URL).title
+    data = fetch('https://trampoline.turbowarp.org/proxy/projects/' + args.URL)
+    return data.title;
       .then((response) => {
         return response.text();
       })
