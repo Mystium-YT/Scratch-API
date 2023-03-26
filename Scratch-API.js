@@ -18,6 +18,7 @@ class ScratchAPIExt {
   }
 
   gettitle (args) {
+    return new Promise((resolve, reject) => {
     data = fetch('https://trampoline.turbowarp.org/proxy/projects/' + args.URL)
     return data.title
       .then((response) => {
@@ -26,7 +27,7 @@ class ScratchAPIExt {
       .catch((error) => {
         console.error(error)
         return 'Uh oh! Something went wrong.'
-      })
+      })}
   }
 }
 Scratch.extensions.register(new ScratchAPIExt())
